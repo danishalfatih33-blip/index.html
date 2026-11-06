@@ -1,412 +1,344 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mengapa iPhone - Paparan Motivasi</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', 'Inter', 'sans-serif'],
-          },
-          colors: {
-            apple: {
-              bg: '#000000',
-              card: 'rgba(255, 255, 255, 0.05)',
-              border: 'rgba(255, 255, 255, 0.1)',
-              blue: '#2997ff',
-              purple: '#af52de',
-              glow: 'rgba(41, 151, 255, 0.15)'
-            }
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengapa iPhone? — Esai Motivasi Evan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #000000;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --border-card: rgba(255, 255, 255, 0.12);
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-blue: #2997ff;
+            --accent-purple: #bf5af2;
+            --accent-gradient: linear-gradient(135deg, #2997ff 0%, #bf5af2 100%);
+            --glow: 0 0 30px rgba(41, 151, 255, 0.25);
         }
-      }
-    }
-  </script>
 
-  <!-- Google Fonts & Font Awesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            scroll-behavior: smooth;
+        }
 
-  <style>
-    /* Custom Scrollbar & Glossy Effects */
-    body {
-      background-color: #000000;
-      color: #f5f5f7;
-      overflow-x: hidden;
-    }
-    
-    .glass-card {
-      background: rgba(22, 22, 26, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-    
-    .glass-card:hover {
-      border-color: rgba(41, 151, 255, 0.3);
-      box-shadow: 0 20px 50px rgba(41, 151, 255, 0.12);
-    }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
 
-    .apple-gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #a1a1a6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        /* Reading Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
 
-    .accent-gradient-text {
-      background: linear-gradient(135deg, #2997ff 0%, #9852f0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        /* Header / Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* Active Tab Glow */
-    .tab-active {
-      background: rgba(255, 255, 255, 0.15) !important;
-      color: #ffffff !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
-    }
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    /* Notification Toast */
-    #toast {
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-    }
-  </style>
+        .author-badge {
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-card);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 90px 24px 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pill-tag {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(41, 151, 255, 0.1);
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(41, 151, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Action Buttons */
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-main);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-card);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Essay Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .essay-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .essay-card:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: var(--glow);
+            transform: translateY(-3px);
+        }
+
+        .card-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .essay-card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .essay-card p {
+            font-size: 1.05rem;
+            color: #d2d2d7;
+            text-align: justify;
+        }
+
+        /* Floating Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(41, 151, 255, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .essay-card { padding: 26px; }
+            .actions { flex-direction: column; }
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-blue-500 selection:text-white">
+<body>
 
-  <!-- Background Ambient Glow -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-600/15 blur-[140px] pointer-events-none rounded-full"></div>
-  <div class="fixed bottom-0 right-0 w-[400px] h-[400px] bg-purple-600/10 blur-[160px] pointer-events-none rounded-full"></div>
+    <div id="progress-bar"></div>
 
-  <!-- Header / Navbar -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-black/60 border-b border-white/10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <i class="fa-brands fa-apple text-2xl text-white"></i>
-        <span class="font-semibold text-lg tracking-tight text-white">Mengapa iPhone</span>
-        <span class="hidden sm:inline-block text-xs px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-medium">Esai Motivasi</span>
-      </div>
-
-      <!-- Navigation / Controls -->
-      <div class="flex items-center space-x-2 bg-white/5 p-1 rounded-full border border-white/10">
-        <button id="btnViewEssay" onclick="switchView('essay')" class="tab-active px-4 py-1.5 rounded-full text-xs font-semibold text-gray-400 transition-all duration-200 flex items-center gap-2">
-          <i class="fa-solid fa-file-text"></i>
-          <span>Mode Esai</span>
-        </button>
-        <button id="btnViewSlides" onclick="switchView('slides')" class="px-4 py-1.5 rounded-full text-xs font-semibold text-gray-400 hover:text-white transition-all duration-200 flex items-center gap-2">
-          <i class="fa-solid fa-layer-group"></i>
-          <span>Mode Slide</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Content Container -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-20 flex-grow w-full">
-
-    <!-- HERO SECTION -->
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-4">
-        <i class="fa-solid fa-sparkles text-xs"></i> Paparan Motivasi Kelas 7
-      </div>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight apple-gradient-text mb-4">
-        Mengapa iPhone
-      </h1>
-      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-        Analisis kritis dan realistis penggunaan iPhone sebagai sarana pendorong produktivitas belajar dan kegiatan sehari-hari.
-      </p>
-    </div>
-
-    <!-- VIEW 1: ESSAY MODE (SINGLE PAGE) -->
-    <div id="essayView" class="space-y-6">
-
-      <!-- PARAGRAF 1 CARD -->
-      <div class="glass-card rounded-2xl p-6 sm:p-8 transition-all duration-300 relative group">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">
-              01
-            </div>
-            <h2 class="text-lg sm:text-xl font-bold text-white">Mengapa Saya Pilih iPhone</h2>
-          </div>
-          <div class="flex items-center gap-2 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity">
-            <button onclick="speakText('text-p1', this)" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Dengarkan Suara">
-              <i class="fa-solid fa-volume-high text-xs"></i>
-            </button>
-            <button onclick="copyCardText('text-p1')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Salin Paragraf">
-              <i class="fa-regular fa-copy text-xs"></i>
-            </button>
-          </div>
+    <header>
+        <div class="logo">
+            <span></span> Mengapa iPhone
         </div>
-        <p id="text-p1" class="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
-          mengapa aku pilih iphone karna iphone memudahkan aku dalam belajar, karna ipad dan iphone lebih mudah buat meyalurkan data dari device 1 ke device 2, iphone itu bukan hanya sekedar buat gaya gayaan tetapi iphone itu buat kegiatan sehari hari lebih enak dibandingkan android karna ios iphone itu lebih mulus dari pada android, daniphone merupakan investasi dalam janga yang cukup panjang untuk mendukung produktivitas
-        </p>
-      </div>
+        <div class="author-badge">Evan • SMP Kelas 7</div>
+    </header>
 
-      <!-- PARAGRAF 2 CARD -->
-      <div class="glass-card rounded-2xl p-6 sm:p-8 transition-all duration-300 relative group">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-sm">
-              02
-            </div>
-            <h2 class="text-lg sm:text-xl font-bold text-white">Kelebihan iPhone Dibandingkan Android</h2>
-          </div>
-          <div class="flex items-center gap-2 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity">
-            <button onclick="speakText('text-p2', this)" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Dengarkan Suara">
-              <i class="fa-solid fa-volume-high text-xs"></i>
-            </button>
-            <button onclick="copyCardText('text-p2')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Salin Paragraf">
-              <i class="fa-regular fa-copy text-xs"></i>
-            </button>
-          </div>
-        </div>
-        <p id="text-p2" class="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
-          kelebihan iphone dibandingkan android sebenernya banyak tapi kelebihan utama nya terletak pada ios nya iphone Sistem operasinya mengelola memori secara cerdas sehingga performa tetap kencang meski dipakai bertahun-tahun. Fitur ekosistem seperti airDrop membuat proses berbagi tugas dan file menjadi instan, Ditambah jaminan pembaruan iOS jangka panjang dan keamanan privasi yang ketat, iphone menawarkan kenyamanan harian yang lebih konsisten dibanding Android
-        </p>
-      </div>
-
-      <!-- PARAGRAF 3 CARD -->
-      <div class="glass-card rounded-2xl p-6 sm:p-8 transition-all duration-300 relative group">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">
-              03
-            </div>
-            <h2 class="text-lg sm:text-xl font-bold text-white">Hal Yang Dioptimalkan Saat Menggunakan iPhone</h2>
-          </div>
-          <div class="flex items-center gap-2 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity">
-            <button onclick="speakText('text-p3', this)" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Dengarkan Suara">
-              <i class="fa-solid fa-volume-high text-xs"></i>
-            </button>
-            <button onclick="copyCardText('text-p3')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition" title="Salin Paragraf">
-              <i class="fa-regular fa-copy text-xs"></i>
-            </button>
-          </div>
-        </div>
-        <p id="text-p3" class="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
-          hal yang dioptimalkan saat menggunakan iphone ajku akan mengoptimalkan mode fokus untuk menjaga konsentrasi saat belajar agar tidak ada notif yang masuk. Dan aku juga akan mengoptimalkan kualitas kamera nya yang sangat jernih dan smooth untuk membuat video presentasi, dan memaximalkan fitur keamanan nya untuk melindungi seluruh data
-        </p>
-      </div>
-
-    </div>
-
-    <!-- VIEW 2: SLIDES PRESENTATION MODE -->
-    <div id="slidesView" class="hidden">
-      <div class="glass-card rounded-3xl p-8 sm:p-12 min-h-[420px] flex flex-col justify-between relative overflow-hidden">
+    <section class="hero">
+        <span class="pill-tag">Esai Motivasi & TIK</span>
+        <h1>Investasi Alat Produktivitas Belajar Masa Depan</h1>
+        <p>Alasan mendasar memilih ekosistem iOS sebagai penunjang belajar, efisiensi harian, dan investasi jangka panjang.</p>
         
-        <!-- Top Slide Header -->
-        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-          <span id="slideCategory" class="text-xs font-semibold uppercase tracking-wider text-blue-400">BAGIAN 1 DARI 3</span>
-          <div class="flex items-center space-x-2">
-            <button onclick="copyCurrentSlide()" class="text-xs px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 transition flex items-center gap-1.5">
-              <i class="fa-regular fa-copy"></i> Salin Slide
+        <div class="actions">
+            <button class="btn btn-primary" onclick="copyEssay()">
+                📋 Salin Semua Teks Esai
             </button>
-          </div>
+            <a href="#paragraf-1" class="btn btn-secondary">
+                📖 Mulai Membaca
+            </a>
         </div>
+    </section>
 
-        <!-- Slide Body Text -->
-        <div class="my-auto py-4">
-          <h2 id="slideTitle" class="text-2xl sm:text-3xl font-extrabold text-white mb-6">
-            Mengapa Saya Pilih iPhone
-          </h2>
-          <p id="slideContent" class="text-gray-200 text-lg sm:text-xl leading-relaxed">
-            mengapa aku pilih iphone karna iphone memudahkan aku dalam belajar, karna ipad dan iphone lebih mudah buat meyalurkan data dari device 1 ke device 2, iphone itu bukan hanya sekedar buat gaya gayaan tetapi iphone itu buat kegiatan sehari hari lebih enak dibandingkan android karna ios iphone itu lebih mulus dari pada android, daniphone merupakan investasi dalam janga yang cukup panjang untuk mendukung produktivitas
-          </p>
-        </div>
+    <main class="container">
+        
+        <!-- Paragraf 1 -->
+        <article class="essay-card" id="paragraf-1">
+            <div class="card-number">Bagian 01</div>
+            <h2>Alasan Utama Memilih iPhone</h2>
+            <p>
+                Memilih iPhone bukan sekadar ikutan tren atau gaya-gayaan semata, melainkan keputusan bijak untuk mendukung produktivitas belajar harian secara maksimal. Sebagai siswa SMP yang mulai banyak mengolah dokumen tugas, presentasi, dan materi digital, kemudahan transfer data antar perangkat Apple sangat mempercepat pekerjaan rumah. Selain itu, performa iOS yang terkenal sangat mulus dan stabil memberikan kenyamanan belajar tanpa terkendala kompromi teknis. iPhone juga merupakan investasi jangka panjang karena masa pakai dan dukungannya yang bertahan hingga bertahun-tahun mendatang.
+            </p>
+        </article>
 
-        <!-- Bottom Controls -->
-        <div class="flex items-center justify-between pt-6 border-t border-white/10 mt-6">
-          <button id="btnPrevSlide" onclick="changeSlide(-1)" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm transition flex items-center gap-2 disabled:opacity-30 disabled:cursor-not-allowed">
-            <i class="fa-solid fa-chevron-left"></i> Sebelumnya
-          </button>
-          
-          <div class="flex space-x-2" id="slideDots">
-            <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-white/20"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-white/20"></div>
-          </div>
+        <!-- Paragraf 2 -->
+        <article class="essay-card" id="paragraf-2">
+            <div class="card-number">Bagian 02</div>
+            <h2>Keunggulan Efisiensi & Ekosistem iOS</h2>
+            <p>
+                Jika dibandingkan dengan ekosistem perangkat lain, iPhone memiliki keunggulan yang sangat terasa pada efisiensi sistem operasinya. Pengelolaan memori yang cerdas membuat aplikasi dapat berjalan sangat stabil tanpa perlu sering melakukan muat ulang (*reload*). Fitur ekosistem seperti AirDrop juga menjadi pembeda utama yang memungkinkan pengiriman file tugas berukuran besar secara instan tanpa menurunkan kualitas file. Ditambah lagi dengan jaminan pembaruan perangkat lunak jangka panjang dari Apple, perangkat ini tetap terasa responsif dan aman digunakan meski sudah dipakai dalam rentang waktu yang lama.
+            </p>
+        </article>
 
-          <button id="btnNextSlide" onclick="changeSlide(1)" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition flex items-center gap-2">
-            Berikutnya <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
+        <!-- Paragraf 3 -->
+        <article class="essay-card" id="paragraf-3">
+            <div class="card-number">Bagian 03</div>
+            <h2>Optimalisasi Fitur untuk Pembelajaran</h2>
+            <p>
+                Ketika nantinya menggunakan iPhone, ada banyak fitur penting yang akan dioptimalkan secara penuh untuk kebutuhan sekolah. Mode Fokus (*Focus Mode*) akan dimanfaatkan untuk menyaring notifikasi saat jam belajar agar konsentrasi tetap terjaga. Kualitas kamera yang jernih dan konsisten akan sangat membantu dalam merekam video tugas presentasi atau mendokumentasikan catatan papan tulis secara detail. Tak kalah penting, fitur keamanan data dan privasi kelas atas pada iOS memberikan ketenangan pikiran bahwa seluruh berkas tugas dan akun pribadi selalu terlindungi dengan aman.
+            </p>
+        </article>
 
-      </div>
-    </div>
+    </main>
 
-  </main>
+    <div class="toast" id="toast">✨ Seluruh teks esai berhasil disalin!</div>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-white/10 py-6 text-center text-xs text-gray-500">
-    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>© 2026 Paparan Motivasi - Siap Di-publish ke GitHub Pages</p>
-      <div class="flex items-center space-x-4">
-        <span class="inline-flex items-center gap-1.5 text-gray-400">
-          <i class="fa-brands fa-github"></i> Ready for GitHub Pages
-        </span>
-      </div>
-    </div>
-  </footer>
+    <footer>
+        Dibuat oleh Evan • Tugas Bahasa Indonesia & TIK • Hosted on GitHub Pages
+    </footer>
 
-  <!-- TOAST NOTIFICATION -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none bg-blue-600 text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 border border-blue-400/30">
-    <i class="fa-solid fa-circle-check"></i>
-    <span id="toastMsg">Teks berhasil disalin!</span>
-  </div>
+    <script>
+        // Reading Progress Indicator
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
 
-  <script>
-    // Data Slide
-    const slidesData = [
-      {
-        num: "BAGIAN 1 DARI 3",
-        title: "1. Mengapa Saya Pilih iPhone",
-        content: "mengapa aku pilih iphone karna iphone memudahkan aku dalam belajar, karna ipad dan iphone lebih mudah buat meyalurkan data dari device 1 ke device 2, iphone itu bukan hanya sekedar buat gaya gayaan tetapi iphone itu buat kegiatan sehari hari lebih enak dibandingkan android karna ios iphone itu lebih mulus dari pada android, daniphone merupakan investasi dalam janga yang cukup panjang untuk mendukung produktivitas"
-      },
-      {
-        num: "BAGIAN 2 DARI 3",
-        title: "2. Kelebihan iPhone Dibandingkan Android",
-        content: "kelebihan iphone dibandingkan android sebenernya banyak tapi kelebihan utama nya terletak pada ios nya iphone Sistem operasinya mengelola memori secara cerdas sehingga performa tetap kencang meski dipakai bertahun-tahun. Fitur ekosistem seperti airDrop membuat proses berbagi tugas dan file menjadi instan, Ditambah jaminan pembaruan iOS jangka panjang dan keamanan privasi yang ketat, iphone menawarkan kenyamanan harian yang lebih konsisten dibanding Android"
-      },
-      {
-        num: "BAGIAN 3 DARI 3",
-        title: "3. Hal Yang Dioptimalkan Saat Menggunakan iPhone",
-        content: "hal yang dioptimalkan saat menggunakan iphone ajku akan mengoptimalkan mode fokus untuk menjaga konsentrasi saat belajar agar tidak ada notif yang masuk. Dan aku juga akan mengoptimalkan kualitas kamera nya yang sangat jernih dan smooth untuk membuat video presentasi, dan memaximalkan fitur keamanan nya untuk melindungi seluruh data"
-      }
-    ];
+        // Copy Essay Function
+        function copyEssay() {
+            const p1 = document.querySelector('#paragraf-1 p').innerText;
+            const p2 = document.querySelector('#paragraf-2 p').innerText;
+            const p3 = document.querySelector('#paragraf-3 p').innerText;
+            
+            const fullText = `Mengapa iPhone?\nOleh: Evan (SMP Kelas 7)\n\n${p1}\n\n${p2}\n\n${p3}`;
 
-    let currentSlide = 0;
-
-    // Switch view mode
-    function switchView(mode) {
-      const essayView = document.getElementById('essayView');
-      const slidesView = document.getElementById('slidesView');
-      const btnEssay = document.getElementById('btnViewEssay');
-      const btnSlides = document.getElementById('btnViewSlides');
-
-      if (mode === 'essay') {
-        essayView.classList.remove('hidden');
-        slidesView.classList.add('hidden');
-        btnEssay.classList.add('tab-active');
-        btnSlides.classList.remove('tab-active');
-      } else {
-        essayView.classList.add('hidden');
-        slidesView.classList.remove('hidden');
-        btnSlides.classList.add('tab-active');
-        btnEssay.classList.remove('tab-active');
-        updateSlideUI();
-      }
-    }
-
-    // Slide Control
-    function changeSlide(direction) {
-      currentSlide += direction;
-      if (currentSlide < 0) currentSlide = 0;
-      if (currentSlide >= slidesData.length) currentSlide = slidesData.length - 1;
-      updateSlideUI();
-    }
-
-    function updateSlideUI() {
-      const data = slidesData[currentSlide];
-      document.getElementById('slideCategory').innerText = data.num;
-      document.getElementById('slideTitle').innerText = data.title;
-      document.getElementById('slideContent').innerText = data.content;
-
-      // Update buttons
-      document.getElementById('btnPrevSlide').disabled = currentSlide === 0;
-      document.getElementById('btnNextSlide').disabled = currentSlide === slidesData.length - 1;
-
-      // Update dots
-      const dotsContainer = document.getElementById('slideDots');
-      dotsContainer.innerHTML = '';
-      slidesData.forEach((_, idx) => {
-        const dot = document.createElement('div');
-        dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'bg-blue-500 w-6' : 'bg-white/20'}`;
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    // Copying Utilities
-    function copyCardText(elementId) {
-      const text = document.getElementById(elementId).innerText;
-      copyToClipboard(text);
-    }
-
-    function copyCurrentSlide() {
-      const text = `${slidesData[currentSlide].title}\n\n${slidesData[currentSlide].content}`;
-      copyToClipboard(text);
-    }
-
-    function copyToClipboard(text) {
-      const textArea = document.createElement("textarea");
-      textArea.value = text;
-      document.body.appendChild(textArea);
-      textArea.select();
-      try {
-        document.execCommand('copy');
-        showToast('Teks berhasil disalin!');
-      } catch (err) {
-        showToast('Gagal menyalin teks');
-      }
-      document.body.removeChild(textArea);
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toastMsg').innerText = message;
-      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
-      
-      setTimeout(() => {
-        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-      }, 2500);
-    }
-
-    // Speech API
-    let synth = window.speechSynthesis;
-    let isSpeaking = false;
-
-    function speakText(elementId, btn) {
-      if (!synth) {
-        showToast('Fitur suara tidak didukung browser ini.');
-        return;
-      }
-
-      if (synth.speaking) {
-        synth.cancel();
-        if (isSpeaking) {
-          isSpeaking = false;
-          btn.innerHTML = '<i class="fa-solid fa-volume-high text-xs"></i>';
-          return;
+            navigator.clipboard.writeText(fullText).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            });
         }
-      }
-
-      const text = document.getElementById(elementId).innerText;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'id-ID';
-      utterance.rate = 0.95;
-
-      utterance.onstart = () => {
-        isSpeaking = true;
-        btn.innerHTML = '<i class="fa-solid fa-square text-xs text-red-400"></i>';
-      };
-
-      utterance.onend = () => {
-        isSpeaking = false;
-        btn.innerHTML = '<i class="fa-solid fa-volume-high text-xs"></i>';
-      };
-
-      synth.speak(utterance);
-    }
-  </script>
+    </script>
 </body>
 </html>
